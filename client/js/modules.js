@@ -10,5 +10,10 @@ app.config(function($routeProvider){
 		controllerAs: 'usersCtrl',
 		templateUrl: '/partials/users.partial.html'
 	})
+	.when('/register', {
+		controller: 'UsersController',
+		controllerAs: 'usersCtrl',
+		templateUrl: '/partials/loginReg.html'
+	})
 	.otherwise('/')
 })
