@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
 var BeaconSchema = new mongoose.Schema({
 	beacon_name: { type: String, trim: true },
 	description: { type: String, trim: true },
 	status: { type: String, default: "extinguished" },
+	travelers: [{type: Schema.Types.ObjectId, ref: "User"}],
 	created_at: { type: Date, default: Date.now },
 	updated_at: { type: Date, default: Date.now }
 });

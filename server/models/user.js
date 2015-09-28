@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
 var UserSchema = new mongoose.Schema({
 	first_name: { type: String, trim: true },
 	last_name: { type: String, trim: true },
+	beacons: [{type: Schema.Types.ObjectId, ref: "Beacon"}],
 	created_at: { type: Date, default: Date.now },
 	updated_at: { type: Date, default: Date.now }
 });
