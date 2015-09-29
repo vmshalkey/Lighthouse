@@ -1,4 +1,7 @@
-<h1>myLookouts Partial</h1>
-<div ng-include="'/partials/lookoutList.html'"></div>
-<div ng-include="'/partials/lookoutInfo.html'"></div>
-<div ng-include="'/partials/lookoutRequest.html'"></div>
+<div class="col-sm-3" ng-include="'/partials/lookoutList.html'"></div>
+<div class="col-sm-6" ng-include="'/partials/lookoutInfo.html'"></div>
+<div class="col-sm-2">
+	<button type="button" class="btn btn-primary">Request for a Lookout</button>
+	<div ng-include="'/partials/lookoutRequest.html'"></div>
+	<button type="button" class="btn btn-primary">Request to be a Lookout</button>
+</div>

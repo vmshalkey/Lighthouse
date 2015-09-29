@@ -1,4 +1,6 @@
-<h1>myBeacons Partial</h1>
-<div ng-include="'/partials/beaconSchedule.html'"></div>
-<div ng-include="'/partials/beaconInfo.html'"></div>
-<div ng-include="'/partials/beaconCreate.html'"></div>
+<div class="col-sm-3" ng-include="'/partials/beaconSchedule.html'"></div>
+<div class="col-sm-6" ng-include="'/partials/beaconInfo.html'"></div>
+<div class="col-sm-2">
+	<button type="button" class="btn btn-primary">Build a Beacon</button>
+	<div ng-include="'/partials/beaconCreate.html'"></div>
+</div>

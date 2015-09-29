@@ -1,4 +1,6 @@
-<h1>myJourneys Partial</h1>
-<div ng-include="'/partials/journeySchedule.html'"></div>
-<div ng-include="'/partials/journeyInfo.html'"></div>
-<div ng-include="'/partials/journeyCreate.html'"></div>
+<div class="col-sm-3" ng-include="'/partials/journeySchedule.html'"></div>
+<div class="col-sm-6" ng-include="'/partials/journeyInfo.html'"></div>
+<div class="col-sm-2">
+	<button type="button" class="btn btn-primary">Schedule a Journey</button>
+	<div ng-include="'/partials/journeyCreate.html'"></div>
+</div>

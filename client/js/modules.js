@@ -27,14 +27,3 @@ app.config(function($routeProvider){
 	})
 	.otherwise('/')
 })
-
-// app.directive('myModule', function() {
-// 	return {
-// 		restrict: 'A',
-//     scope : {
-//       title : '@'
-//     },
-//     templateUrl : '/partial/module.html',
-//     transclude : true
-//   };
-// });
