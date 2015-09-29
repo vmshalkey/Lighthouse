@@ -3,7 +3,7 @@ var app = angular.module('app', ['ngRoute']);
 app.config(function($routeProvider){
 	$routeProvider
 	.when('/', {
-		templateUrl: '/partials/home.partial.html'
+		templateUrl: '/partials/home.html'
 	})
 	.when('/users', {
 		controller: 'UsersController',
