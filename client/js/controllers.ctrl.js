@@ -13,3 +13,14 @@ app.controller('MainController', function(){
 	}
 	getUsers();
 })
+.controller('BeaconsController', function(BeaconsFactory){
+	console.log("BeaconsController Loaded");
+	var that = this;
+	var getBeacons = function() {
+		console.log("BeaconsController getBeacons");
+		BeaconsFactory.getUsers(function(beacons) {
+			that.beacons = beacons;
+		});
+	}
+	getUsers();
+})
