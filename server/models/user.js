@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
 	last_name: { type: String, trim: true },
 	email: { type: String, trim: true },
 	password: { type: String, trim: true }, 
-	beacons: [{type: Schema.Types.ObjectId, ref: "Beacon"}],
+	// beacons: [{type: Schema.Types.ObjectId, ref: "Beacon"}],
 	created_at: { type: Date, default: Date.now },
 	updated_at: { type: Date, default: Date.now }
 });

@@ -1,6 +1,14 @@
-<div class="col-sm-3" ng-include="'/partials/journeySchedule.html'"></div>
-<div class="col-sm-6" ng-include="'/partials/journeyInfo.html'"></div>
-<div class="col-sm-2">
-	<button type="button" class="btn btn-primary">Schedule a Journey</button>
-	<div ng-include="'/partials/journeyCreate.html'"></div>
+<ul ng-if="!journeysCtrl.loggeduser" class="nav navbar-nav">
+	<li ng-if="journeysCtrl.loggeduser == undefined"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	<li ng-if="journeysCtrl.loggeduser == undefined"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	<li ng-if="journeysCtrl.loggeduser"><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+</ul>
+
+<div ng-if="journeysCtrl.loggeduser">
+	<div class="col-sm-3" ng-include="'/partials/journeySchedule.html'"></div>
+	<div class="col-sm-6" ng-include="'/partials/journeyInfo.html'"></div>
+	<div class="col-sm-2">
+		<button type="button" class="btn btn-primary">Schedule a Journey</button>
+		<div ng-include="'/partials/journeyCreate.html'"></div>
+	</div>
 </div>

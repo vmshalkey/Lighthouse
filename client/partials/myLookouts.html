@@ -1,7 +1,15 @@
-<div class="col-sm-3" ng-include="'/partials/lookoutList.html'"></div>
-<div class="col-sm-6" ng-include="'/partials/lookoutInfo.html'"></div>
-<div class="col-sm-2">
-	<button type="button" class="btn btn-primary">Request for a Lookout</button>
-	<div ng-include="'/partials/lookoutRequest.html'"></div>
-	<button type="button" class="btn btn-primary">Request to be a Lookout</button>
+<ul ng-if="!lookoutsCtrl.loggeduser" class="nav navbar-nav">
+	<li ng-if="lookoutsCtrl.loggeduser == undefined"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	<li ng-if="lookoutsCtrl.loggeduser == undefined"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	<li ng-if="lookoutsCtrl.loggeduser"><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+</ul>
+
+<div ng-if="lookoutsCtrl.loggeduser">
+	<div class="col-sm-3" ng-include="'/partials/lookoutList.html'"></div>
+	<div class="col-sm-6" ng-include="'/partials/lookoutInfo.html'"></div>
+	<div class="col-sm-2">
+		<button type="button" class="btn btn-primary">Request for a Lookout</button>
+		<div ng-include="'/partials/lookoutRequest.html'"></div>
+		<button type="button" class="btn btn-primary">Request to be a Lookout</button>
+	</div>
 </div>

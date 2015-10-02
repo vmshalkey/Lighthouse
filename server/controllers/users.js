@@ -1,11 +1,20 @@
-var Users = mongoose.model('User');
+var User = mongoose.model('User');
 
 module.exports = (function() {
 	return {
 		index: function(request, response) {
 			console.log("Server / Ctrl / Users - Index")
-			var users = [{first_name: 'Winners!!!!!'}];
-			response.json(users);
+			User.find({$query:{}, $orderby:{date:-1}}, function(err, appts){
+				console.log("searching");
+				if(err){
+					response.json([{date:"Updating, pleast be patient..."}]);
+					// console.log(err);
+				}
+				else{
+					response.json(appts);
+					console.log(appts);
+				}
+			});
 
 		},
 		new: function(request, response) {
@@ -17,9 +26,10 @@ module.exports = (function() {
 			user.first_name = request.body.first_name;
 			user.last_name = request.body.last_name;
 			user.email = request.body.email;
-			user.email = request.body.password;
+			user.password = request.body.password;
 			user.save(function(err){
 				if(err){
+					console.log('error')
 					response.json({status:false});
 					// response.json([{first_name:"Updating, pleast be patient..."}]);
 				}
@@ -27,6 +37,21 @@ module.exports = (function() {
 					response.json({status:true});
 				}
 			})
+		},
+		login: function(request, response){
+			console.log("Server / Ctrl / Users - Login");
+			console.log(request.body.email);
+			console.log(request.body.password);
+			User.find({$query:{email: request.body.email, password:request.body.password}}, function(err, user){
+				console.log("searching");
+				if(err){
+					response.json([{date:"Updating, pleast be patient..."}]);
+					// console.log(err);
+				}
+				else{
+					response.json(user);
+				}
+			}); 
 		},
 		edit: function(request, response) {
 			console.log("Server / Ctrl / Users - Edit")
