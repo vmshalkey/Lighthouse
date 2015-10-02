@@ -8,7 +8,7 @@ var BeaconSchema = new mongoose.Schema({
 	status: { type: String, default: "extinguished" },
 	beacon_first_name: { type: String, trim: true},
 	beacon_last_name: { type: String, trim: true},
-	// travelers: [{type: Schema.Types.ObjectId, ref: "User"}],
+	travelers: [{type: Schema.Types.ObjectId, ref: "User"}],
 	created_at: { type: Date, default: Date.now },
 	updated_at: { type: Date, default: Date.now }
 });

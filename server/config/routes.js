@@ -25,4 +25,6 @@ module.exports = function(app) {
 	.post('/users/login', function(request, response){ users.login(request,response)})
 	.get('/beacons', function(request, response){ beacons.index(request, response)})
 	.post('/beacons', function(request, response){ beacons.create(request, response)})
+	// .get('/beacons/:name', function(request, response){ beacons.info(request, response)})
+	.delete('/beacons/:id', function(request, response) {beacons.destroy(request, response) })
 }

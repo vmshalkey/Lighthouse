@@ -54,7 +54,22 @@ app.factory('BeaconsFactory', function($http, $location) {
 
 			});
 			$location.path("/beacons");
-		}
+		},
+		selectBeacon: function(beacon){
+			console.log("BeaconsFactory selectBeacon");
+			this.currentbeacon = beacon;
+			console.log("BeaconsFactory selected " + this.currentbeacon.beacon_name);
+			$location.path("/beacons");
+		},
+		removeBeacon: function(beacon, callback){
+			console.log("BeaconsFactory removeBeacon", beacon);
+			$http.delete('/beacons/'+beacon._id).success(function(response){
+				callback();
+			});
+			//reset currentbeacon to null
+			this.currentbeacon = null;
+			$location.url("/beacons");
+		},
 	}
 })
 app.factory('LookoutsController', function($http) {

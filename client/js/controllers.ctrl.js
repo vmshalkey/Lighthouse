@@ -56,9 +56,13 @@ app.controller('UsersController', function(UsersFactory, $location){
 		}
 	}
 });
-app.controller('BeaconsController', function(UsersFactory, BeaconsFactory){
+app.controller('BeaconsController', function(UsersFactory, BeaconsFactory, $location){
 	console.log("BeaconsController Loaded");
 	var that = this;
+	if(BeaconsFactory.currentbeacon){
+		that.currentbeacon = BeaconsFactory.currentbeacon;
+	}
+
 	if(UsersFactory.loggeduser){
 		that.loggeduser = UsersFactory.loggeduser;
 	}
@@ -80,15 +84,37 @@ app.controller('BeaconsController', function(UsersFactory, BeaconsFactory){
 			})
 		}
 	}
+	this.selectBeacon = function(beacon){
+		console.log("Clicked - beacon through param ", beacon);
+		if(beacon){
+			BeaconsFactory.selectBeacon(beacon);
+			console.log('selecting beacon');
+			that.currentbeacon = BeaconsFactory.currentbeacon;
+			console.log(that.currentbeacon);
+			getBeacons();
+		}
+	}
+	this.removeBeacon = function(currentbeacon){
+		console.log("removeBeacon", currentbeacon);
+		BeaconsFactory.removeBeacon(currentbeacon, function(){
+			getBeacons();
+		});
+		// $location.path("/beacons");
+		that.currentbeacon = null;
+
+	}
 
 
 	getBeacons();
 })
-app.controller('JourneysController', function(UsersFactory, JourneysController){
+app.controller('JourneysController', function(UsersFactory, BeaconsFactory){
 	console.log("JourneysController Loaded");
 	var that = this;
 	if(UsersFactory.loggeduser){
 		that.loggeduser = UsersFactory.loggeduser;
+	}
+	if(BeaconsFactory.currentbeacon){
+		that.currentbeacon = BeaconsFactory.currentbeacon;
 	}
 	var getBeacons = function() {
 		console.log("BeaconsController getBeacons");
@@ -98,7 +124,7 @@ app.controller('JourneysController', function(UsersFactory, JourneysController){
 	}
 	// getUsers();
 })
-app.controller('LookoutsController', function(UsersFactory, LookoutsController){
+app.controller('LookoutsController', function(UsersFactory, BeaconsFactory){
 	console.log("LookoutsController Loaded");
 	var that = this;
 	if(UsersFactory.loggeduser){

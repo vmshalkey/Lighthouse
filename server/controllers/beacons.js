@@ -41,7 +41,19 @@ module.exports = (function() {
 				}
 			})
 		},
-
+		destroy: function(request, response){
+			console.log("Server / Ctrl / Beacons - Destroy");
+			console.log("Destroy params id:", request.params.id);
+			Beacon.remove({_id:request.params.id}, function(err){
+				if(err){
+					response.json({status:false});
+					// response.json([{first_name:"Updating, pleast be patient..."}]);
+				}
+				else{
+					response.json({status:true});
+				}
+			})
+		},
 		
 
 
@@ -53,9 +65,6 @@ module.exports = (function() {
 		},
 		show: function(request, response) {
 			console.log("Server / Ctrl / Beacons - Show")
-		},
-		destroy: function(request, response) {
-			console.log("Server / Ctrl / Beacons - Destroy")
 		}
 	}
 })();
