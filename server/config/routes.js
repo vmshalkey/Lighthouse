@@ -1,5 +1,6 @@
 module.exports = function(app) {
 	var users = require('../controllers/users.js');
+	var beacons = require('../controllers/beacons.js')
 
 //User
 	// Index
@@ -22,4 +23,6 @@ module.exports = function(app) {
 	.post('/users', function(request, response) { users.create(request, response) })
 	//log in user
 	.post('/users/login', function(request, response){ users.login(request,response)})
+	.get('/beacons', function(request, response){ beacons.index(request, response)})
+	.post('/beacons', function(request, response){ beacons.create(request, response)})
 }

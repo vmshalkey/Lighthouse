@@ -37,7 +37,7 @@ app.factory('UsersFactory', function($http, $location) {
 		}
 	}
 })
-app.factory('BeaconsFactory', function($http) {
+app.factory('BeaconsFactory', function($http, $location) {
 	return {
 		getBeacons: function(callback){
 			console.log("BeaconsFactory getBeacons");
@@ -46,6 +46,14 @@ app.factory('BeaconsFactory', function($http) {
 			})
 			// var response = [{first_name: 'Winners!'}];
 			// callback(response);
+		},
+		addBeacon: function(newBeacon, callback){
+			console.log("BeaconsFactory addBeacon", newBeacon);
+			$http.post('/beacons', newBeacon).success(function(response){
+				callback(response);
+
+			});
+			$location.path("/beacons");
 		}
 	}
 })

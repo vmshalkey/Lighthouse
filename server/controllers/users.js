@@ -4,15 +4,15 @@ module.exports = (function() {
 	return {
 		index: function(request, response) {
 			console.log("Server / Ctrl / Users - Index")
-			User.find({$query:{}, $orderby:{date:-1}}, function(err, appts){
+			User.find({$query:{}}, function(err, users){
 				console.log("searching");
 				if(err){
 					response.json([{date:"Updating, pleast be patient..."}]);
 					// console.log(err);
 				}
 				else{
-					response.json(appts);
-					console.log(appts);
+					response.json(users);
+					console.log(users);
 				}
 			});
 

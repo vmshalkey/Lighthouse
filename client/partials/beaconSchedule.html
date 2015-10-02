@@ -1,7 +1,4 @@
 <h3>My Beacons</h3>
   <ul class="nav nav-pills nav-stacked">
-    <li><a href="#/beacons">Beacon A</a></li>
-    <li><a href="#/beacons">Beacon B</a></li>
-    <li><a href="#/beacons">Beacon C</a></li>
-    <li><a href="#/beacons">Beacon D</a></li>
+    <li ng-repeat="beacon in beaconsCtrl.beacons"><a href="#/beacons">{{beacon.beacon_name}}</a></li>
   </ul>

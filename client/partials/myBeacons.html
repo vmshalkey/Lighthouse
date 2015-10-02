@@ -8,7 +8,7 @@
 	<div class="col-sm-3" ng-include="'/partials/beaconSchedule.html'"></div>
 	<div class="col-sm-6" ng-include="'/partials/beaconInfo.html'"></div>
 	<div class="col-sm-2">
-		<button type="button" class="btn btn-primary">Build a Beacon</button>
+		<button type="button" class="btn btn-primary" ng-click="beaconsCtrl.addBeacon(beaconsCtrl.newBeacon)">Build a Beacon</button>
 		<div ng-include="'/partials/beaconCreate.html'"></div>
 	</div>
 </div>

@@ -44,7 +44,7 @@ app.controller('UsersController', function(UsersFactory, $location){
 			});
 		}
 	}
-	// getUsers();
+	getUsers();
 
 	this.addUser = function(newUser){
 		console.log("Clicked - newUser through param ", newUser);
@@ -64,11 +64,25 @@ app.controller('BeaconsController', function(UsersFactory, BeaconsFactory){
 	}
 	var getBeacons = function() {
 		console.log("BeaconsController getBeacons");
-		BeaconsFactory.getUsers(function(beacons) {
+		BeaconsFactory.getBeacons(function(beacons) {
 			that.beacons = beacons;
 		});
 	}
-	// getUsers();
+	this.addBeacon = function(newBeacon){
+		console.log("Clicked - newBeacon through param ", newBeacon);
+		// console.log("Clicked - data through scope ", that.newUser);
+		newBeacon.beacon_first_name = UsersFactory.loggeduser.first_name;
+		newBeacon.beacon_last_name = UsersFactory.loggeduser.last_name;
+		
+		if(newBeacon){
+			BeaconsFactory.addBeacon(newBeacon, function(){
+				getBeacons();
+			})
+		}
+	}
+
+
+	getBeacons();
 })
 app.controller('JourneysController', function(UsersFactory, JourneysController){
 	console.log("JourneysController Loaded");
