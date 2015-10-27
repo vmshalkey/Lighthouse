@@ -1,4 +1,0 @@
-<h3>My Beacons</h3>
-  <ul class="nav nav-pills nav-stacked">
-    <li ng-repeat="beacon in beaconsCtrl.beacons"><a ng-if="beaconsCtrl.loggeduser.first_name == beacon.beacon_first_name" ng-click="beaconsCtrl.selectBeacon(beacon)" id="{{beacon.beacon_name}}">{{beacon.beacon_name}}</a></li>
-  </ul>
