@@ -1,0 +1,18 @@
+.navbar {
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+}
+
+.banner{
+	min-height: 200px;
+}
+.opaque-navbar.opaque {
+	background-color: rgba(0,0,0,0.5);
+	height: 60px;
+	transition: background-color .5s ease 0s;
+}
+
+.navbar-brand  {
+	width: 150px;
+	height: 70px;
+}
