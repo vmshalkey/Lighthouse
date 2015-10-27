@@ -1,6 +1,11 @@
 var express = require('express')
-var app = express()
-app.listen(8000);
+var app = express();
+var port = 8000;
+var server = app.listen(port, function () {
+	console.log('--------------------');
+	console.log('--------'+port+'--------');
+	console.log('--------------------');
+});
 
 // Sockets
 // io = require('socket.io').listen(server)
