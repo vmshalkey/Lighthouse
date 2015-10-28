@@ -7,6 +7,7 @@ var server = app.listen(port, function () {
 	console.log('--------------------');
 });
 
+
 // Sockets
 // io = require('socket.io').listen(server)
 
@@ -30,3 +31,26 @@ require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 // Socket Routes
 // require('./server/config/socket/routes.js')(app);
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	password: "root",
+	database: "lighthouse"
+});
+
+con.connect(function(err){
+	if(err){
+		console.log('Error connecting to database');
+		return;
+	}
+	console.log('Connection to MySQL DB established');
+});
+
+con.end(function(err) {
+	// The connection is terminated gracefully
+	// Ensures all previously enqueued queries are still
+	// before sending a COM_QUIT packet to the MySQL server.
+});
