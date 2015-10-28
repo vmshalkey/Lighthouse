@@ -1,17 +1,12 @@
-<ul ng-if="!beaconsCtrl.loggeduser" class="nav navbar-nav">
-	<li ng-if="beaconsCtrl.loggeduser == undefined"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	<li ng-if="beaconsCtrl.loggeduser == undefined"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	<li ng-if="beaconsCtrl.loggeduser"><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-</ul>
 
 <div ng-if="beaconsCtrl.loggeduser">
 	<div class="col-sm-3">
 		<h3>My Beacons</h3>
-  			<ul class="nav nav-pills nav-stacked">
-    			<li ng-repeat="beacon in beaconsCtrl.beacons">
-    				<a ng-if="beaconsCtrl.loggeduser.first_name == beacon.beacon_first_name" ng-click="beaconsCtrl.selectBeacon(beacon)" id="{{beacon.beacon_name}}">{{beacon.beacon_name}}</a>
-    			</li>
-  			</ul>
+			<ul class="nav nav-pills nav-stacked">
+				<li ng-repeat="beacon in beaconsCtrl.beacons">
+					<a ng-if="beaconsCtrl.loggeduser.first_name == beacon.beacon_first_name" ng-click="beaconsCtrl.selectBeacon(beacon)" id="{{beacon.beacon_name}}">{{beacon.beacon_name}}</a>
+				</li>
+			</ul>
 	</div>
 	<div class="col-sm-6" ng-include="'/partials/beaconInfo.html'"></div>
 	<div class="col-sm-2">

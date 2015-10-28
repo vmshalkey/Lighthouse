@@ -1,8 +1,8 @@
-<h3 ng-if="usersCtrl.loggeduser">Welcome <span ng-bind="usersCtrl.loggeduser.first_name"></span>    <a href="/", target="_self"><button class="btn btn-default">Logout</button></a></h3>
-
-
-<ul ng-if="!usersCtrl.loggeduser" class="nav navbar-nav">
-	<li ng-if="UsersFactory.loggeduser == undefined"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	<li ng-if="UsersFactory.loggeduser == undefined"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	<li ng-if="UsersFactory.loggeduser"><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-</ul>
+<div class="slide slide-animation"
+	ng-if="isCurrentSlideIndex($index)"
+	ng-show="loaded" ng-repeat="slide in slides">
+	<img class="bg" bgImage ng-src="{{slide.src}}">
+	<div class="xlarge">{{slide.title}}</div>
+	<div class="title">{{slide.title}}</div>
+	<div class="subtitle">{{slide.subtitle}}</div>
+</div>
