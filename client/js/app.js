@@ -39,8 +39,8 @@ app.config(function($routeProvider){
 		templateUrl: '/partials/loginReg.html'
 	})
 	.when('/login', {
-		controller: 'UsersController',
-		controllerAs: 'users_ctrl',
+		controller: 'LoginController',
+		controllerAs: 'login_ctrl',
 		templateUrl: '/partials/login.html'
 	})
 	.when('/home', {
