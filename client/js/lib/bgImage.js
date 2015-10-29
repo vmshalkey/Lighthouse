@@ -1,37 +1,41 @@
-app.directive('bgImage', function ($window, $timeout) {
-	return function (scope, element, attrs) {
-		var resizeBG = function () {
-			var bgwidth = element.width();
-			var bgheight = element.height();
+'use strict';
 
-			var winwidth = $window.innerWidth;
-			var winheight = $window.innerHeight;
+angular.module( "bgImage", [])
+	.directive('bgImage', function ($window, $timeout) {
+		return function (scope, element, attrs) {
+			var resizeBG = function () {
+				var bgwidth = element.width();
+				var bgheight = element.height();
 
-			var widthratio = winwidth / bgwidth;
-			var heightratio = winheight / bgheight;
+				var winwidth = $window.innerWidth;
+				var winheight = $window.innerHeight;
 
-			var widthdiff = heightratio * bgwidth;
-			var heightdiff = widthratio * bgheight;
+				var widthratio = winwidth / bgwidth;
+				var heightratio = winheight / bgheight;
 
-			if (heightdiff > winheight) {
-				element.css({
-					width: winwidth + 'px',
-					height: heightdiff + 'px'
-				});
-			} else {
-				element.css({
-					width: widthdiff + 'px',
-					height: winheight + 'px'
-				});
-			}
-		};
+				var widthdiff = heightratio * bgwidth;
+				var heightdiff = widthratio * bgheight;
 
-		var windowElement = angular.element($window);
-		windowElement.resize(resizeBG);
+				if (heightdiff > winheight) {
+					element.css({
+						width: winwidth + 'px',
+						height: heightdiff + 'px'
+					});
+				} else {
+					element.css({
+						width: widthdiff + 'px',
+						height: winheight + 'px'
+					});
+				}
+			};
 
-		element.bind('load', function () {
-			resizeBG();
-		});
-	}
-});
+			var windowElement = angular.element($window);
+			windowElement.resize(resizeBG);
+
+			element.bind('load', function () {
+				resizeBG();
+			});
+		}
+	});
+
 
