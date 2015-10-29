@@ -1,7 +1,17 @@
 // var http = require('http');
 var express = require('express')
+<<<<<<< HEAD
 var app = express()
 var jwt = require('express-jwt');
+=======
+var app = express();
+var port = 8000;
+var server = app.listen(port, function () {
+	console.log('--------------------');
+	console.log('--------'+port+'--------');
+	console.log('--------------------');
+});
+>>>>>>> 8b0328e5fefdc0d68068c3045355e407f643bedf
 
 var bodyParser = require('body-parser')
 

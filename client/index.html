@@ -1,15 +1,18 @@
 <!DOCTYPE HTML>
 <html ng-app="app">
-	<title>Lighthouse</title>
-	<script type="text/javascript" src="/js/lib/angular-1.4.6/angular.js"></script>
-	<script type="text/javascript" src="/js/lib/angular-1.4.6/angular-route.js"></script>
+	<title>Beacon</title>
+	<!-- JS -->
 	<script src="/js/lib/jquery-1.11.2.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js"></script>
+	<script type="text/javascript" src="/js/lib/angular-1.4.6/angular.js"></script>
+	<script type="text/javascript" src="/js/lib/angular-1.4.6/angular-animate.min.js"></script>
+	<script type="text/javascript" src="/js/lib/angular-1.4.6/angular-route.js"></script>
+	<script src="https://code.createjs.com/preloadjs-0.6.1.min.js"></script>
 	<!-- <script src="/js/lib/bootstrap.js"></script> -->
+
+	<!-- CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/custom.css">
-	<script type="text/javascript" src="/js/modules.js"></script>
-	<script type="text/javascript" src="/js/factories.factory.js"></script>
-	<script type="text/javascript" src="/js/controllers.ctrl.js"></script>
 	<!-- Auth0 Stuff -->
 	<!-- We use client cookies to save the user credentials -->
 	<script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
@@ -24,6 +27,19 @@
 
 	<!-- Setting the right viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<!-- ANGULAR CUSTOM -->
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/factories/beacon_factory.js"></script>
+	<script type="text/javascript" src="/js/factories/journey_factory.js"></script>
+	<script type="text/javascript" src="/js/factories/lookout_factory.js"></script>
+	<script type="text/javascript" src="/js/factories/main_factory.js"></script>
+	<script type="text/javascript" src="/js/factories/user_factory.js"></script>
+	<script type="text/javascript" src="/js/controllers/beacons_ctrl.js"></script>
+	<script type="text/javascript" src="/js/controllers/journeys_ctrl.js"></script>
+	<script type="text/javascript" src="/js/controllers/lookouts_ctrl.js"></script>
+	<script type="text/javascript" src="/js/controllers/main_ctrl.js"></script>
+	<script type="text/javascript" src="/js/controllers/users_ctrl.js"></script>
 
 </html>
 <body ng-controller="MainController as main">
@@ -40,9 +56,9 @@
 					<li><a href="#/beacons">Beacons</a></li>
 					<li><a href="#/journeys">Journeys</a></li>
 					<li><a href="#/lookouts">Lookouts</a></li>
-					<li ng-if="usersCtrl.loggeduser == undefined"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li ng-if="usersCtrl.loggeduser == undefined"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<li ng-if="usersCtrl.loggeduser"><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+					<li ng-if="users_Ctrl.loggeduser == undefined"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li ng-if="users_Ctrl.loggeduser == undefined"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li ng-if="users_Ctrl.loggeduser"><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 				</ul>
 			</div>
 		</div>
