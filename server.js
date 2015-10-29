@@ -1,4 +1,9 @@
+// var http = require('http');
 var express = require('express')
+<<<<<<< HEAD
+var app = express()
+var jwt = require('express-jwt');
+=======
 var app = express();
 var port = 8000;
 var server = app.listen(port, function () {
@@ -6,14 +11,30 @@ var server = app.listen(port, function () {
 	console.log('--------'+port+'--------');
 	console.log('--------------------');
 });
+>>>>>>> 8b0328e5fefdc0d68068c3045355e407f643bedf
 
-
-// Sockets
-// io = require('socket.io').listen(server)
-
-// Body Parser
 var bodyParser = require('body-parser')
-app.use(bodyParser.json())
+
+// Configure express-jwt with Auth0 account
+var jwtCheck = jwt({
+  secret: new Buffer('IxvGIFqCdwfEcCeL4A2q_oK_9nqSQQW8wG6kPf06WnwpDytSw82GV1tdKybJ6MPT', 'base64'),
+  audience: 'NPiBWuublwKGHK5REN5kJkXkinaxKXG0'
+});
+
+app.use('/api/secure', jwtCheck);
+
+// app.configure(function () {
+
+//  // Request body parsing middleware should be above methodOverride
+//   app.use(express.bodyParser());
+//   app.use(express.urlencoded());
+//   app.use(express.json());
+
+//   app.use('/secured', authenticate);
+//   app.use(cors());
+
+//   app.use(app.router);
+// });
 
 // Session
 var session = require('express-session')
@@ -27,11 +48,17 @@ app.use(express.static(__dirname + '/client'))
 
 // Mongoose
 require('./server/config/mongoose.js');
+
 // HTTP Routes
 require('./server/config/routes.js')(app);
+
 // Socket Routes
 // require('./server/config/socket/routes.js')(app);
 
+// Sockets
+// io = require('socket.io').listen(server)
+
+// MySQL Database
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
@@ -49,8 +76,11 @@ con.connect(function(err){
 	console.log('Connection to MySQL DB established');
 });
 
-con.end(function(err) {
-	// The connection is terminated gracefully
-	// Ensures all previously enqueued queries are still
-	// before sending a COM_QUIT packet to the MySQL server.
-});
+// Port
+// var port = process.env.PORT || 3001;
+
+// http.createServer(app).listen(port, function (err) {
+//   console.log('listening in http://localhost:' + port);
+// });
+
+app.listen(8000);
