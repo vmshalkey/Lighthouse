@@ -33,16 +33,6 @@ app.config(function($routeProvider){
 		controllerAs: 'lookouts_ctrl',
 		templateUrl: '/partials/myLookouts.html'
 	})
-	.when('/register', {
-		controller: 'UsersController',
-		controllerAs: 'users_ctrl',
-		templateUrl: '/partials/loginReg.html'
-	})
-	.when('/login', {
-		controller: 'LoginController',
-		controllerAs: 'login_ctrl',
-		templateUrl: '/partials/login.html'
-	})
 	.when('/home', {
 		controller: 'UsersController',
 		controllerAs: 'users_ctrl',
