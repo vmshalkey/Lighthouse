@@ -1,4 +1,15 @@
-var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'angular-storage', 'angular-jwt'])
+
+.config(function (authProvider) {
+  authProvider.init({
+    domain: 'shalkey.auth0.com',
+    clientID: 'NPiBWuublwKGHK5REN5kJkXkinaxKXG0'
+  });
+})
+.run(function(auth) {
+  // This hooks al auth events to check everything as soon as the app starts
+  auth.hookEvents();
+});
 
 app.config(function($routeProvider){
 	$routeProvider

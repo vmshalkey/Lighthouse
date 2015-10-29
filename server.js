@@ -1,17 +1,14 @@
 // var http = require('http');
 var express = require('express')
-<<<<<<< HEAD
 var app = express()
 var jwt = require('express-jwt');
-=======
-var app = express();
+
 var port = 8000;
 var server = app.listen(port, function () {
 	console.log('--------------------');
 	console.log('--------'+port+'--------');
 	console.log('--------------------');
 });
->>>>>>> 8b0328e5fefdc0d68068c3045355e407f643bedf
 
 var bodyParser = require('body-parser')
 
@@ -22,19 +19,6 @@ var jwtCheck = jwt({
 });
 
 app.use('/api/secure', jwtCheck);
-
-// app.configure(function () {
-
-//  // Request body parsing middleware should be above methodOverride
-//   app.use(express.bodyParser());
-//   app.use(express.urlencoded());
-//   app.use(express.json());
-
-//   app.use('/secured', authenticate);
-//   app.use(cors());
-
-//   app.use(app.router);
-// });
 
 // Session
 var session = require('express-session')
@@ -75,12 +59,3 @@ con.connect(function(err){
 	}
 	console.log('Connection to MySQL DB established');
 });
-
-// Port
-// var port = process.env.PORT || 3001;
-
-// http.createServer(app).listen(port, function (err) {
-//   console.log('listening in http://localhost:' + port);
-// });
-
-app.listen(8000);
