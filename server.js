@@ -26,20 +26,6 @@ app.use('/api/secure', jwtCheck);
 //   app.use(app.router);
 // });
 
-// Add module dependency and configure the service for Auth0
-angular.module('lighthouse', ['auth0', 'angular-storage', 'angular-jwt'])
-.config(function (authProvider) {
-  authProvider.init({
-    domain: 'shalkey.auth0.com',
-    clientID: 'NPiBWuublwKGHK5REN5kJkXkinaxKXG0'
-  });
-})
-.run(function(auth) {
-  // This hooks al auth events to check everything as soon as the app starts
-  auth.hookEvents();
-});
-
-
 // Session
 var session = require('express-session')
 app.use(session({
