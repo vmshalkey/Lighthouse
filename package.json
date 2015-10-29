@@ -2,10 +2,15 @@
   "name": "lighthouse",
   "version": "1.0.0",
   "description": "safeTravelsApp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmshalkey/Lighthouse.git"
+  },
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "express-jwt": "^3.1.0",
     "express-session": "^1.11.3",
     "mongoose": "^4.1.9",
     "mysql": "^2.9.0"
@@ -14,11 +19,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vmshalkey/Lighthouse.git"
-  },
-  "author": "",
+  "author": "ccoolawn, ericzuniga, vmshalkey",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vmshalkey/Lighthouse/issues"

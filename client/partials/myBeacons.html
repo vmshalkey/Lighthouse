@@ -6,6 +6,7 @@
 
 <div ng-if="beaconsCtrl.loggeduser">
 	<div class="col-sm-3">
+		<button type="button" class="btn btn-primary" ng-click="beaconsCtrl.addBeacon(beaconsCtrl.newBeacon)">Build a Beacon</button>
 		<h3>My Beacons</h3>
   			<ul class="nav nav-pills nav-stacked">
     			<li ng-repeat="beacon in beaconsCtrl.beacons">
@@ -15,7 +16,6 @@
 	</div>
 	<div class="col-sm-6" ng-include="'/partials/beaconInfo.html'"></div>
 	<div class="col-sm-2">
-		<button type="button" class="btn btn-primary" ng-click="beaconsCtrl.addBeacon(beaconsCtrl.newBeacon)">Build a Beacon</button>
 		<div ng-include="'/partials/beaconCreate.html'"></div>
 	</div>
 </div>
