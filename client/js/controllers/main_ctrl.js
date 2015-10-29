@@ -1,4 +1,4 @@
-app.controller('MainController', function (UserFactory, $scope, $timeout, QueueService) {
+app.controller('MainController', function (UserFactory, $scope, $timeout, QueueService, $http, auth, store, $location) {
 	console.log("MainController Loaded");
 	var that = this;
 
@@ -34,6 +34,17 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		$scope.isCurrentSlideIndex = isCurrentSlideIndex;
 
 		loadSlides();
+
+		$scope.login = function () {
+    		auth.signin({}, function (profile, token) {
+		      // Success callback
+		      store.set('profile', profile);
+		      store.set('token', token);
+		      $location.path('/');
+		    }, function () {
+		      // Error callback
+		    });
+	  	}
 });
 
 app.animation('.slide-animation', function ($window) {
