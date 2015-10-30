@@ -4,6 +4,8 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 
 	$scope.auth = auth;
 
+	console.log(auth.profile);
+
 	var INTERVAL = 10000,
 		slides = [
 			{id:"image00", src:"assets/img/teens-walking.jpg", title: 'Our teens', subtitle: 'are side tracked!'},

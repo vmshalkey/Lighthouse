@@ -1,67 +1,26 @@
 <div style="margin-top: 100px"></div>
-<div>
+
+<div class="row">
+	<div class="col-sm-3">
+		<label>Lookout Request <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide" value="submit"></label>
+	</div>
+	<div class="col-sm-8" ng-show="checked" ng-include="'/partials/lookoutRequest.html'"></div>
+</div>
+
+<div class="row">
 	<div class="col-sm-3">
 		<h3>I'm Looking out for</h3>
-		<ul class="nav nav-pills nav-stacked">
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-				<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-		</ul>
-		<h3>Looking out for me</h3>
-		<ul class="nav nav-pills nav-stacked">
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-			<li>
-				<a href="#" class="btn btn-info btn-sm">
-					<span class="glyphicon glyphicon-user"></span> User
-				</a>
-			</li>
-		</ul>
+			<ul class="nav nav-pills nav-stacked">
+				<li ng-repeat="lookout in lookouts_ctrl.lookouts">
+					<a ng-click="lookouts_ctrl.selectLookout(lookout)" id="{{lookout.id}}">{{lookout.username}}</a>
+				</li>
+			</ul>
+		<h3>Looking out for Me</h3>
+			<ul class="nav nav-pills nav-stacked">
+				<li ng-repeat="lookout in lookouts_ctrl.lookouts">
+					<a ng-click="lookouts_ctrl.selectLookout(lookout)" id="{{lookout.id}}">{{lookout.username}}</a>
+				</li>
+			</ul>
 	</div>
 	<div class="col-sm-6" ng-include="'/partials/lookoutInfo.html'"></div>
-	<div class="col-sm-2">
-		<button type="button" class="btn btn-primary">Request for a Lookout</button>
-		<div ng-include="'/partials/lookoutRequest.html'"></div>
-		<button type="button" class="btn btn-primary">Request to be a Lookout</button>
-	</div>
 </div>

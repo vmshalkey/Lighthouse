@@ -2,9 +2,9 @@
 	<div class="center-block">
     	<div class="form-group">
     		<div class="form-group">
-      			<label class="control-label col-sm-6" for="beacon_name">Beacon name:</label>
+      			<label class="control-label col-sm-6" for="name">Beacon name:</label>
       			<div class="col-sm-8">
-        			<input type="text" class="form-control" id="beacon_name" placeholder="Enter beacon name" ng-model="beaconsCtrl.newBeacon.beacon_name">
+        			<input type="text" class="form-control" id="name" placeholder="Name your beacon" ng-model="beacons_ctrl.newBeacon.name">
       			</div>
     		</div>
     	</div>
@@ -12,18 +12,58 @@
     		<div class="form-group">
       			<label class="control-label col-sm-6" for="description">Description:</label>
       			<div class="col-sm-8">
-        			<input type="text" class="form-control" id="description" placeholder="Enter description" ng-model="beaconsCtrl.newBeacon.description">
+        			<input type="text" class="form-control" id="description" placeholder="What is this beacon for?" ng-model="beacons_ctrl.newBeacon.description">
       			</div>
     		</div>
     	</div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="address_1">Address Line 1:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="address_1" placeholder="eg. 100 Main St" ng-model="beacons_ctrl.newBeacon.address_1">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="address_2">Address Line 2:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="address_2" placeholder="eg. Apt #201B" ng-model="beacons_ctrl.newBeacon.address_2">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="city">City:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="city" placeholder="eg. Seattle" ng-model="beacons_ctrl.newBeacon.city">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="state">State:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="state" placeholder="eg. WA" ng-model="beacons_ctrl.newBeacon.state">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="zipcode">Zipcode:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="zipcode" placeholder="eg. 98101" ng-model="beacons_ctrl.newBeacon.zipcode">
+            </div>
+        </div>
+      </div>
     	<div class="form-group">
      		<div class="col-sm-10">
-        		<button class="btn btn-info" ng-click="beaconsCtrl.addBeacon(beaconsCtrl.newBeacon)">Build</button>
+        		<button class="btn btn-info" ng-click="beacons_ctrl.addBeacon(beacons_ctrl.newBeacon)">Build</button>
       		</div>
     	</div>
     	<div class="form-group">
       		<div class="col-sm-10">
-        		<a href="#/"><button class="btn btn-default">Cancel</button><a>
+        		<a href="#/beacons"><button class="btn btn-default">Cancel</button><a>
       		</div>
     	</div>
     </div>

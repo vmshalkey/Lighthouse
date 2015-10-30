@@ -1,32 +1,39 @@
 <form class="form-vertical" role="form">
-	<div class="center-block">
-		<div class="form-group">
-				<label class="control-label col-sm-6" for="journey_name">Journey name:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="journey_name" placeholder="Enter journey name" ng-model="usersCtrl.newJourney.journey_name">
-				</div>
-		</div>
-		<div class="form-group">
-				<label class="control-label col-sm-6" for="beacon_name">Beacon name:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="beacon_name" placeholder="Enter beacon name" ng-model="usersCtrl.newJourney.journey_name">
-				</div>
-		</div>
-		<div class="form-group">
-				<label class="control-label col-sm-6" for="description">Description:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="description" placeholder="Enter description" ng-model="usersCtrl.newJourney.description">
-				</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-8">
-				<button class="form-control btn btn-info" ng-click="usersCtrl.addJourney(userssCtrl.newJourney)">Start</button>
-			 </div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-8">
-					<a href="#/"><button class="form-control btn btn-default">Cancel</button></a>
-			 </div>
-		</div>
-	</div>
+  <div class="center-block">
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="name">Journey Name:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="name" placeholder="Journey ID" ng-model="journeys_ctrl.newJourney.name">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="description">Description:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="description" placeholder="Description" ng-model="journeys_ctrl.newJourney.description">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="beacon_id">Beacon ID:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="beacon_id" placeholder="Description" ng-model="journeys_ctrl.newJourney.beacon_id">
+            </div>
+        </div>
+      </div>
+      <input type="hidden" id="user_id" value="{{auth.profile.user_id}}" ng-model="journeys_ctrl.newJourney.user_id">
+      <div class="form-group">
+        <div class="col-sm-10">
+            <button class="btn btn-info" ng-click="journeys_ctrl.addUser(journeys_ctrl.newJourney)">Schedule Journey</button>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-10">
+            <a href="#/profile"><button class="btn btn-default">Cancel</button><a>
+          </div>
+      </div>
+    </div>
 </form>

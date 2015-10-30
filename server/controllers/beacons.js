@@ -18,20 +18,19 @@ module.exports = (function() {
 			});
 		},
 
-		index: function(request, response) {
-			console.log("Server / Ctrl / Beacons - Index");
-			Beacon.find({$query:{}}, function(err, beacons){
-				console.log("searching");
-				if(err){
-					response.json([{date:"Updating, pleast be patient..."}]);
-					// console.log(err);
+		index: function(request, response){
+			console.log("S | beacons.js index:", request.body);
+			var query = "SELECT * FROM beacons";
+			con.query(query, function (err, rows){
+				console.log("ran retrieve query");
+				if (err) {
+					return response.json(err);
 				}
-				else{
-					response.json(beacons);
-					console.log(beacons);
+				else {
+					console.log("rows", rows);
+					return response.json(rows);
 				}
-			})
-
+			});
 		},
 
 		// new: function(request, response) {

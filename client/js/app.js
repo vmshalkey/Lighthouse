@@ -50,6 +50,12 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'an
 		templateUrl: '/partials/myLookouts.html',
 		requiresLogin: true
 	})
+	.when('/profile', {
+		controller: 'MainController',
+		controllerAs: 'main_ctrl',
+		templateUrl: '/partials/profile.html',
+		requiresLogin: true
+	})
 	// .otherwise('/')
 
   authProvider.init({

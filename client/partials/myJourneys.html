@@ -1,17 +1,20 @@
 <div style="margin-top: 100px"></div>
-<div>
+
+<div class="row">
+	<div class="col-sm-3">
+		<label>Schedule a Journey <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide" value="submit"></label>
+	</div>
+		<div class="col-sm-8" ng-show="checked" ng-include="'/partials/journeyCreate.html'"></div>
+</div>
+
+<div class="row">
 	<div class="col-sm-3">
 		<h3>My Journeys</h3>
   			<ul class="nav nav-pills nav-stacked">
-			    <li><a href="#/journeys">Journey A</a></li>
-			    <li><a href="#/journeys">Journey B</a></li>
-			    <li><a href="#/journeys">Journey C</a></li>
-			    <li><a href="#/journeys">Journey D</a></li>
+			    <li ng-repeat="journey in journeys_ctrl.journeys">
+					<a ng-click="journeys_ctrl.selectJourney(journey)" id="{{journey.id}}">{{journey.name}}</a>
+				</li>
   			</ul>
 	</div>
-	<div class="col-sm-6" ng-include="'/partials/journeyInfo.html'"></div>
-	<div class="col-sm-2">
-		<button type="button" class="btn btn-primary">Schedule a Journey</button>
-		<div ng-include="'/partials/journeyCreate.html'"></div>
-	</div>
+	<div class="col-sm-8" ng-include="'/partials/journeyInfo.html'"></div>
 </div>

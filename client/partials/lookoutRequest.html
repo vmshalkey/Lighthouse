@@ -1,38 +1,31 @@
 <form class="form-vertical" role="form">
-	<div class="center-block">
-    	<div class="form-group">
-    		<div class="form-group">
-      			<label class="control-label col-sm-6" for="lookout_name">Lookout's name:</label>
-      			<div class="col-sm-8">
-        			<input type="text" class="form-control" id="lookout_name" placeholder="Enter lookout's name" ng-model="usersCtrl.newLookout.lookout_name">
-      			</div>
-    		</div>
-    	</div>
-    	<div class="form-group">
-    		<div class="form-group">
-      			<label class="control-label col-sm-6" for="journey_name">Journey name:</label>
-      			<div class="col-sm-8">
-        			<input type="text" class="form-control" id="journey_name" placeholder="Enter journey name" ng-model="usersCtrl.newJourney.journey_name">
-      			</div>
-    		</div>
-    	</div>
-    	<div class="form-group">
-    		<div class="form-group">
-      			<label class="control-label col-sm-6" for="message">Message:</label>
-      			<div class="col-sm-8">
-        			<input type="text" class="form-control" id="message" placeholder="Enter message" ng-model="usersCtrl.newLookout.message">
-      			</div>
-    		</div>
-    	</div>
-    	<div class="form-group">
-     		<div class="col-sm-10">
-        		<button class="btn btn-info" ng-click="usersCtrl.addLookout(userssCtrl.newLookout)">Send</button>
-      		</div>
-    	</div>
-    	<div class="form-group">
-      		<div class="col-sm-10">
-        		<a href="#/"><button class="btn btn-default">Cancel</button><a>
-      		</div>
-    	</div>
+  <div class="center-block">
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="journey_id">Journey ID:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="journey_id" placeholder="Journey ID" ng-model="lookouts_ctrl.newLookout.journey_id">
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="description">Description:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="description" placeholder="Description" ng-model="lookouts_ctrl.newLookout.description">
+            </div>
+        </div>
+      </div>
+      <input type="hidden" id="user_id" value="{{auth.profile.user_id}}" ng-model="lookouts_ctrl.newLookout.user_id">
+      <div class="form-group">
+        <div class="col-sm-10">
+            <button class="btn btn-info" ng-click="lookouts_ctrl.addLookout(lookouts_ctrl.newLookout)">Become a Lookout</button>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-10">
+            <a href="#/profile"><button class="btn btn-default">Cancel</button><a>
+          </div>
+      </div>
     </div>
 </form>
