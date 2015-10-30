@@ -40,7 +40,7 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		      // Success callback
 		      store.set('profile', profile);
 		      store.set('token', token);
-		      $location.path('/');
+		      $location.path('/dashboard');
 		    }, function () {
 		      // Error callback
 		    });

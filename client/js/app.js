@@ -1,10 +1,6 @@
 var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'angular-storage', 'angular-jwt'])
 
-.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
-  authProvider.init({
-    domain: 'shalkey.auth0.com',
-    clientID: 'NPiBWuublwKGHK5REN5kJkXkinaxKXG0'
-  });
+.config(function (authProvider, $routeProvider, $locationProvider, $httpProvider, jwtInterceptorProvider) {
 
   jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     // Return the saved token
@@ -19,32 +15,57 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'an
 		controllerAs: 'users_ctrl',
 		templateUrl: '/partials/home.html'
 	})
-	.when('/dashboard', {
-		controller: 'UsersController',
-		controllerAs: 'users_ctrl',
-		templateUrl: '/partials/dashboard.html'
-	})
-	.when('/beacons', {
-		controller: 'BeaconsController',
-		controllerAs: 'beacons_ctrl',
-		templateUrl: '/partials/myBeacons.html'
-	})
-	.when('/journeys', {
-		controller: 'JourneysController',
-		controllerAs: 'journeys_ctrl',
-		templateUrl: '/partials/myJourneys.html'
-	})
-	.when('/lookouts', {
-		controller: 'LookoutsController',
-		controllerAs: 'lookouts_ctrl',
-		templateUrl: '/partials/myLookouts.html'
-	})
 	.when('/home', {
 		controller: 'UsersController',
 		controllerAs: 'users_ctrl',
 		templateUrl: '/partials/home.html'
 	})
-	.otherwise('/')
+	.when('/login', {
+		controller: 'MainController',
+		controllerAs: 'main_ctrl',
+		templateUrl: '/partials/dashboard.html'
+	})
+
+	// Logged in Routes
+	.when('/logout', {
+		controller: 'MainController',
+		controllerAs: 'main_ctrl',
+		templateUrl: '/',
+		requiresLogin: true
+	})
+	.when('/dashboard', {
+		controller: 'UsersController',
+		controllerAs: 'users_ctrl',
+		templateUrl: '/partials/dashboard.html',
+		requiresLogin: true
+	})
+	.when('/beacons', {
+		controller: 'BeaconsController',
+		controllerAs: 'beacons_ctrl',
+		templateUrl: '/partials/myBeacons.html',
+		requiresLogin: true
+	})
+	.when('/journeys', {
+		controller: 'JourneysController',
+		controllerAs: 'journeys_ctrl',
+		templateUrl: '/partials/myJourneys.html',
+		requiresLogin: true
+	})
+	.when('/lookouts', {
+		controller: 'LookoutsController',
+		controllerAs: 'lookouts_ctrl',
+		templateUrl: '/partials/myLookouts.html',
+		requiresLogin: true
+	})
+	// .otherwise('/')
+
+  authProvider.init({
+    domain: 'shalkey.auth0.com',
+    clientID: 'NPiBWuublwKGHK5REN5kJkXkinaxKXG0',
+    callbackURL: location.href,
+    // URL to redirect to if the user tries to access a resource when not authenticated.
+    loginUrl: '/'
+  });
 })
 
 .run(function($rootScope, auth, store, jwtHelper, $location) {

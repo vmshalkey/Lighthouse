@@ -4,6 +4,8 @@ app.controller('UsersController', function(UserFactory, $location, $scope, auth)
 
 	$scope.auth = auth;
 
+	console.log(auth);
+
 	if(UserFactory.loggeduser){
 		that.loggeduser = UserFactory.loggeduser;
 	}

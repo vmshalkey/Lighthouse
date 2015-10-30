@@ -1,6 +1,24 @@
 var Beacon = mongoose.model('Beacon');
 
 module.exports = (function() {
+
+	// return{
+	// 	retrieve: function(request, response){
+	// 		console.log("S | beacons.js retrieve:", request.body.response.json);
+	// 		var query = "SELECT * FROM beacons";
+	// 		con.query(query, function (err, rows){
+	// 			if (err) {
+	// 				return response.json(err)
+	// 			}
+	// 			else {
+	// 				return resonse.json(rows)
+	// 			}
+	// 		})
+	// 	}
+	// },
+
+
+
 	return {
 		index: function(request, response) {
 			console.log("Server / Ctrl / Beacons - Index");
@@ -54,7 +72,7 @@ module.exports = (function() {
 				}
 			})
 		},
-		
+
 
 
 		edit: function(request, response) {

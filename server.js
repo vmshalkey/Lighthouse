@@ -45,11 +45,13 @@ require('./server/config/routes.js')(app);
 // MySQL Database
 var mysql = require('mysql');
 
-var con = mysql.createConnection({
+con = mysql.createConnection({
 	host: "localhost",
+	port: 3306,
 	user: "root",
 	password: "root",
-	database: "lighthouse"
+	database: "lighthouse",
+	multipleStatements: true
 });
 
 con.connect(function(err){
