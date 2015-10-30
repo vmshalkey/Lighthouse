@@ -13,7 +13,7 @@ app.controller('BeaconsController', function(UserFactory, BeaconFactory, $locati
 		console.log("BeaconsController getBeacons");
 		BeaconFactory.getBeacons(function(beacons) {
 			that.beacons = beacons;
-			console.log(that.beacons, "hello I am back i the controller");
+			console.log(that.beacons, "hello I am back in the controller");
 		});
 	}
 	this.addBeacon = function(newBeacon){

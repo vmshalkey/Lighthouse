@@ -3,11 +3,11 @@ var Beacon = mongoose.model('Beacon');
 module.exports = (function() {
 
 	return {
+
 		retrieve: function(request, response){
 			console.log("S | beacons.js retrieve:", request.body);
 			var query = "SELECT * FROM beacons";
 			con.query(query, function (err, rows){
-				console.log("ran retrieve query");
 				if (err) {
 					return response.json(err);
 				}
@@ -20,8 +20,9 @@ module.exports = (function() {
 
 		index: function(request, response){
 			console.log("S | beacons.js index:", request.body);
-			var query = "SELECT * FROM beacons";
-			con.query(query, function (err, rows){
+			var query = "SELECT * FROM beacons WHERE id = ?";
+			var values = [params.user_id];
+			con.query(query, values, function (err, rows){
 				console.log("ran retrieve query");
 				if (err) {
 					return response.json(err);
@@ -68,6 +69,22 @@ module.exports = (function() {
 					response.json({status:true});
 				}
 			})
+		},
+
+		destroy: function(request, response){
+			console.log("S | beacons.js destroy:", request.params.id);
+			var query = "DELETE FROM beacons WHERE id =";
+
+			con.query(query, function (err, rows){
+				console.log("ran retrieve query");
+				if (err) {
+					return response.json(err);
+				}
+				else {
+					console.log("rows", rows);
+					return response.json(rows);
+				}
+			});
 		},
 
 

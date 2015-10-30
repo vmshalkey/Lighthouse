@@ -1,18 +1,26 @@
 app.controller('UsersController', function(UserFactory, $location, $scope, auth){
 	console.log("UsersController Loaded");
 	var that = this;
+	var newUser = {};
 
 	$scope.auth = auth;
+	$scope.user_id = "";
+	temp = auth.profile.user_id;
 
-	console.log(auth);
+	for (var i = 6; i < temp.length; i++) {
+		$scope.user_id += temp[i];
+	}
+
+	console.log("THIS IS SCOPE", $scope);
 
 	if(UserFactory.loggeduser){
 		that.loggeduser = UserFactory.loggeduser;
 	}
 	var getUsers = function() {
 		console.log("UsersController getUsers");
-		UserFactory.getUsers(function(users) {
-			that.users = users;
+		UserFactory.getUsers($scope.user_id, function(user) {
+			$scope.loggeduser = user;
+			console.log("I'm back in the users_ctrl", $scope.loggeduser);
 		});
 	}
 

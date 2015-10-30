@@ -1,23 +1,20 @@
 app.factory('UserFactory', function($http, $location) {
+
 	return {
 
-		getUsers: function(callback){
+		getUsers: function(id, callback){
 			console.log("UserFactory getUsers");
-			$http.get('/users').success(function(response) {
-				callback(response);
+			var url = "/users/" + id;
+			console.log("url", url);
+			$http.get(url).success(function(user) {
+				callback(user);
+				this.loggeduser = user;
+				console.log("logged user is ", this.loggeduser);
 			})
 			// var response = [{first_name: 'Winners!'}];
 			// callback(response);
 		},
-		loginUser: function(user, callback){
-			console.log("UserFactory loginUser");
-			$http.post('/users/login', user).success(function(response){
-				callback(response);
-				this.loggeduser = user;
-				console.log("logged user is " + this.loggeduser);
-				console.log(this.loggeduser);
-			});
-		},
+
 		saveUser: function(user){
 			console.log("UserFactory saveUser");
 			this.loggeduser = user;
@@ -29,7 +26,7 @@ app.factory('UserFactory', function($http, $location) {
 				callback(response);
 
 			});
-			$location.path("/");
+			$location.path("/profile");
 		}
 	}
 })

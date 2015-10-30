@@ -1,6 +1,6 @@
 <div style="margin-top: 100px"></div>
 
-<h1>Hello, {{auth.profile.username}}</h1>
+<h1>Hello {{loggeduser[0].first_name}} {{loggeduser[0].last_name}}</h1>
 
 <form class="form-vertical" role="form">
 	<div class="center-block">
@@ -20,7 +20,7 @@
       			</div>
     		</div>
     	</div>
-    	<input type="hidden" id="auth0_id" value="{{auth.profile.user_id}}" ng-model="users_ctrl.newUser.auth0_id">
+    	<input type="hidden" id="auth0_id" value="{{user_id}}" ng-model="users_ctrl.newUser.auth0_id">
         <input type="hidden" id="username" value="{{auth.profile.username}}" ng-model="users_ctrl.newUser.username">
 		<input type="hidden" id="email" value="{{auth.profile.email}}" ng-model="users_ctrl.newUser.email">
     	<div class="form-group">

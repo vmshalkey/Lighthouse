@@ -4,7 +4,7 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 
 	$scope.auth = auth;
 
-	console.log(auth.profile);
+	console.log("auth.profile", auth.profile);
 
 	var INTERVAL = 10000,
 		slides = [
@@ -81,6 +81,7 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		$scope.login = function () {
     		auth.signin({}, function (profile, token) {
 		      // Success callback
+
 		      store.set('profile', profile);
 		      store.set('token', token);
 		      $location.path('/beacons');
