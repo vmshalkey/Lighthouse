@@ -1,6 +1,6 @@
-<div  id="info">
-	<h1>Journey to {{journeysCtrl.currentbeacon.beacon_name}}</h1>
-	<h4>This is a description for the journey....includes location and times.</h4>
+<div  id="info" ng-if="journeys_ctrl.currentjourney">
+	<h1>Journey to {{journeys_ctrl.currentjourney.name}}</h1>
+	<h4>{{journeys_ctrl.currentjourney.description}}</h4>
 	<h3>Expected Arrival</h3>
 	<div class="row">
 		<div class="col-sm-3">

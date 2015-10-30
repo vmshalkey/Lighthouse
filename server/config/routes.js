@@ -1,6 +1,7 @@
 module.exports = function(app) {
 	var users = require('../controllers/users.js');
-	var beacons = require('../controllers/beacons.js')
+	var beacons = require('../controllers/beacons.js');
+	var journeys = require('../controllers/journeys.js');
 
 //User
 	// Index
@@ -14,7 +15,7 @@ module.exports = function(app) {
 	// Create
 
 	//Destroy .delete('/users/:id')
-	.post('/users/:id/destroy', function(request, response) { users. destroy(request, response) })
+	.post('/users/:id/destroy', function(request, response) { users.destroy(request, response) })
 	// Update .put/patch('/users/:id')
 	.post('/users/:id/update', function(request, response) { users.update(request, response) })
 //
@@ -31,5 +32,8 @@ module.exports = function(app) {
 	// .get('/beacons/:name', function(request, response){ beacons.info(request, response)})
 	.delete('/beacons/:id', function(request, response) {beacons.destroy(request, response) })
 
+// Journeys
+	//retrieve
+	.get('/journeys', function(request, response){ journeys.retrieve(request, response)})
 
 }

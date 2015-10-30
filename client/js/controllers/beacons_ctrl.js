@@ -3,7 +3,7 @@ app.controller('BeaconsController', function(UserFactory, BeaconFactory, $locati
 	var that = this;
 	that.beacons = {};
 	if(BeaconFactory.currentbeacon){
-		that.currentbeacon = BeaconsFactory.currentbeacon;
+		that.currentbeacon = BeaconFactory.currentbeacon;
 	}
 
 	if(UserFactory.loggeduser){

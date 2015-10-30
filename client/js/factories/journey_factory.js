@@ -1,12 +1,17 @@
-app.factory('JourneyFactory', function($http) {
+app.factory('JourneyFactory', function($http, $location) {
 	return {
-		getBeacons: function(callback){
-			console.log("BeaconFactory getBeacons");
-			$http.get('/beacons').success(function(response) {
+		getJourneys: function(callback){
+			console.log("JourneyFactory getBeacons");
+			$http.get('/journeys').success(function(response) {
+				console.log(response);
 				callback(response);
 			})
-			// var response = [{first_name: 'Winners!'}];
-			// callback(response);
-		}
+		},
+		selectJourney: function(journey){
+			console.log("JourneyFactory selectJourney");
+			this.currentjourney = journey;
+			console.log("JourneyFactory selected " + this.currentjourney.journey_name);
+			$location.path("/journeys");
+		},
 	}
 })
