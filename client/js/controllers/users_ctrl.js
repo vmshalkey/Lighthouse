@@ -1,6 +1,9 @@
-app.controller('UsersController', function(UserFactory, $location){
+app.controller('UsersController', function(UserFactory, $location, $scope, auth){
 	console.log("UsersController Loaded");
 	var that = this;
+
+	$scope.auth = auth;
+
 	if(UserFactory.loggeduser){
 		that.loggeduser = UserFactory.loggeduser;
 	}
@@ -41,4 +44,5 @@ app.controller('UsersController', function(UserFactory, $location){
 			})
 		}
 	}
+
 });

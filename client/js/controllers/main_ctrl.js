@@ -1,4 +1,4 @@
-app.controller('MainController', function (UserFactory, $scope, $timeout, QueueService) {
+app.controller('MainController', function (UserFactory, $scope, $timeout, QueueService, $http, auth, store, $location) {
 	console.log("MainController Loaded");
 	var that = this;
 
@@ -34,6 +34,7 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		$scope.isCurrentSlideIndex = isCurrentSlideIndex;
 
 		loadSlides();
+
 
 		// PubNub.init({
 		// 	publish_key: 'pub-c-a3c419a4-8b0e-4563-8439-8feb7493d89b',
@@ -72,6 +73,25 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 			// 	console.log('got a presence event:', payload);
 			// })
 		 // }
+
+		$scope.login = function () {
+    		auth.signin({}, function (profile, token) {
+		      // Success callback
+		      store.set('profile', profile);
+		      store.set('token', token);
+		      $location.path('/');
+		    }, function () {
+		      // Error callback
+		    });
+	  	}
+
+	  	$scope.logout = function() {
+			auth.signout();
+			store.remove('profile');
+			store.remove('token');
+			alert("logged out");
+		}
+
 });
 
 app.animation('.slide-animation', function ($window) {
