@@ -6,8 +6,6 @@ app.factory('BeaconFactory', function($http, $location) {
 				console.log(response);
 				callback(response);
 			})
-			// var response = [{first_name: 'Winners!'}];
-			// callback(response);
 		},
 		addBeacon: function(newBeacon, callback){
 			console.log("BeaconFactory addBeacon", newBeacon);

@@ -1,7 +1,23 @@
-var User = mongoose.model('User');
 
 module.exports = (function() {
+
 	return {
+
+		retrieve: function(request, response){
+			console.log("S | users.js retrieve:", request.params.id);
+			var query = "SELECT * FROM users WHERE auth0_id = ?";
+			var values = request.params.id;
+			con.query(query, values, function (err, rows){
+				if (err) {
+					response.json(err);
+				}
+				else {
+					console.log("rows", rows);
+					response.json(rows);
+				}
+			});
+		},
+
 		index: function(request, response) {
 			console.log("Server / Ctrl / Users - Index")
 			User.find({$query:{}}, function(err, users){
@@ -21,49 +37,18 @@ module.exports = (function() {
 			console.log("Server / Ctrl / Users - New")
 		},
 		create: function(request, response) {
-			console.log("Server / Ctrl / Users - Create");
-			var user = new User;
-			user.first_name = request.body.first_name;
-			user.last_name = request.body.last_name;
-			user.email = request.body.email;
-			user.password = request.body.password;
-			user.save(function(err){
-				if(err){
-					console.log('error')
-					response.json({status:false});
-					// response.json([{first_name:"Updating, pleast be patient..."}]);
+			console.log("S | users.js create:", request.body);
+			var query = "INSERT INTO users (`auth0_id`, `first_name`, `last_name`, `username`, `email`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
+			var values = [request.body.auth0_id, request.body.first_name, request.body.last_name, request.body.username, request.body.email];
+			con.query(query, values, function (err, rows){
+				if (err) {
+					response.json(err);
 				}
-				else{
-					response.json({status:true});
+				else {
+					console.log("rows", rows);
+					response.json(rows);
 				}
-			})
-		},
-		login: function(request, response){
-			console.log("Server / Ctrl / Users - Login");
-			console.log(request.body.email);
-			console.log(request.body.password);
-			User.find({$query:{email: request.body.email, password:request.body.password}}, function(err, user){
-				console.log("searching");
-				if(err){
-					response.json([{date:"Updating, pleast be patient..."}]);
-					// console.log(err);
-				}
-				else{
-					response.json(user);
-				}
-			}); 
-		},
-		edit: function(request, response) {
-			console.log("Server / Ctrl / Users - Edit")
-		},
-		update: function(request, response) {
-			console.log("Server / Ctrl / Users - Update")
-		},
-		show: function(request, response) {
-			console.log("Server / Ctrl / Users - Show")
-		},
-		destroy: function(request, response) {
-			console.log("Server / Ctrl / Users - Destroy")
+			});
 		}
 	}
 })();

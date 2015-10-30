@@ -51,8 +51,8 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'an
 		requiresLogin: true
 	})
 	.when('/profile', {
-		controller: 'MainController',
-		controllerAs: 'main_ctrl',
+		controller: 'UsersController',
+		controllerAs: 'users_ctrl',
 		templateUrl: '/partials/profile.html',
 		requiresLogin: true
 	})
