@@ -30,6 +30,8 @@ module.exports = function(app) {
 	.post('/beacons', function(request, response){ beacons.create(request, response)})
 	// .get('/beacons/:name', function(request, response){ beacons.info(request, response)})
 	.delete('/beacons/:id', function(request, response) {beacons.destroy(request, response) })
-
+	.post('/test', function(req, res) {
+		console.log(req.body, "iqwuehiu");
+	});
 
 }

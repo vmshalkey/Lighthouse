@@ -16,6 +16,12 @@ app.controller('BeaconsController', function(UserFactory, BeaconFactory, $locati
 			console.log(that.beacons, "hello I am back i the controller");
 		});
 	}
+	var getMap = function() {
+		BeaconFactory.test(function(map) {
+			that.map = map;
+			console.log(that.map, "map stuf");
+		});
+	}
 	this.addBeacon = function(newBeacon){
 		console.log("Clicked - newBeacon through param ", newBeacon);
 		newBeacon.beacon_first_name = UserFactory.loggeduser.first_name;
@@ -34,6 +40,7 @@ app.controller('BeaconsController', function(UserFactory, BeaconFactory, $locati
 			that.currentbeacon = BeaconFactory.currentbeacon;
 			console.log(that.currentbeacon);
 			getBeacons();
+			getMap(that.currentbeacon);
 		}
 	}
 	this.removeBeacon = function(currentbeacon){

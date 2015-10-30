@@ -23,6 +23,11 @@ app.factory('BeaconFactory', function($http, $location) {
 			console.log("BeaconFactory selected " + this.currentbeacon.beacon_name);
 			$location.path("/beacons");
 		},
+		test: function(donut) {
+			$http.post('/test',{url:'https://maps.googleapis.com/maps/api/geocode/json?address='+ donut.address_1 +',+'+ donut.address_2 +',+'+ donut.city +',+'+ donut.state +'&key=AIzaSyBhUUqZXyi38KDORAncbD7Ags2TQgr2Lk8'}).success(function(res) {
+				console.log(res, 'mapstuff');
+			})
+		},
 		removeBeacon: function(beacon, callback){
 			console.log("BeaconFactory removeBeacon", beacon);
 			$http.delete('/beacons/'+beacon._id).success(function(response){

@@ -20,6 +20,7 @@ var jwtCheck = jwt({
 
 app.use('/api/secure', jwtCheck);
 
+
 // Session
 var session = require('express-session')
 app.use(session({
