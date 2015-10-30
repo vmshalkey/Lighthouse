@@ -34,6 +34,44 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		$scope.isCurrentSlideIndex = isCurrentSlideIndex;
 
 		loadSlides();
+
+		// PubNub.init({
+		// 	publish_key: 'pub-c-a3c419a4-8b0e-4563-8439-8feb7493d89b',
+		// 	subscribe_key: 'sub-c-f5beb90e-7e7d-11e5-ad8e-02ee2ddab7fe',
+		// 	uuid:'an_optional_user_uuid'
+		// })
+
+		/* ---------------------------------------------------------------------------
+		Publish Messages
+		--------------------------------------------------------------------------- */
+
+		// $scope.publish = function() {
+		// 	PubNub.ngPublish({
+		// 		channel: $scope.selectedChannel,
+		// 		message: $scope.newMessage
+		// 	});
+		// };
+
+		/* ---------------------------------------------------------------------------
+		Listen for Messages
+		--------------------------------------------------------------------------- */
+
+		 // $scope.subscribe = function() {
+
+			// PubNub.ngSubscribe({
+			// channel: theChannel,
+			// callback: function() { console.log(arguments); }
+			// })
+
+			// $rootScope.$on(PubNub.ngMsgEv( theChannel ), function(event, payload) {
+			// 	console.log('got a message event:', payload);
+			// })
+
+			// $rootScope.$on(PubNub.ngPrsEv(theChannel), function(event, payload) {
+			// 	// payload contains message, channel, env...
+			// 	console.log('got a presence event:', payload);
+			// })
+		 // }
 });
 
 app.animation('.slide-animation', function ($window) {
