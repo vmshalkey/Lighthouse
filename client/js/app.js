@@ -22,8 +22,7 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'an
 	})
 	.when('/login', {
 		controller: 'MainController',
-		controllerAs: 'main_ctrl',
-		templateUrl: '/partials/dashboard.html'
+		controllerAs: 'main_ctrl'
 	})
 
 	// Logged in Routes
@@ -31,12 +30,6 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'bgImage', 'auth0', 'an
 		controller: 'MainController',
 		controllerAs: 'main_ctrl',
 		templateUrl: '/',
-		requiresLogin: true
-	})
-	.when('/dashboard', {
-		controller: 'UsersController',
-		controllerAs: 'users_ctrl',
-		templateUrl: '/partials/dashboard.html',
 		requiresLogin: true
 	})
 	.when('/beacons', {

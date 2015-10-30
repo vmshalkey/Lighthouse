@@ -2,6 +2,8 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 	console.log("MainController Loaded");
 	var that = this;
 
+	$scope.auth = auth;
+
 	var INTERVAL = 10000,
 		slides = [
 			{id:"image00", src:"assets/img/teens-walking.jpg", title: 'Our teens', subtitle: 'are side tracked!'},
@@ -79,7 +81,7 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		      // Success callback
 		      store.set('profile', profile);
 		      store.set('token', token);
-		      $location.path('/dashboard');
+		      $location.path('/beacons');
 		    }, function () {
 		      // Error callback
 		    });
@@ -89,7 +91,6 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 			auth.signout();
 			store.remove('profile');
 			store.remove('token');
-			alert("logged out");
 		}
 
 });

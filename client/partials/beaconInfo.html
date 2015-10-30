@@ -1,8 +1,10 @@
-<div ng-if="beaconsCtrl.currentbeacon">
-	<h1>{{beaconsCtrl.currentbeacon.beacon_name}}</h1>
-<!-- 	<h4>This is a description for the beacon....includes location and times.</h4>
- -->
- 	<h4>{{beaconsCtrl.currentbeacon.description}}</h4>	
+<div ng-if="beacons_ctrl.currentbeacon">
+	<h1>{{beacons_ctrl.currentbeacon.name}}</h1>
+	<h4>{{beacons_ctrl.currentbeacon.description}}</h4>
+	<h4>Address</h4>
+	<h5>{{beacons_ctrl.currentbeacon.address_1}}, {{beacons_ctrl.currentbeacon.address_2}}</h5>
+	<h5>{{beacons_ctrl.currentbeacon.city}}, {{beacons_ctrl.currentbeacon.state}} {{beacons_ctrl.currentbeacon.zipcode}}</h5>
+
  	<button class="btn btn-danger btn-sm" ng-click="beaconsCtrl.removeBeacon(beaconsCtrl.currentbeacon)">Delete beacon</button>
  	<h3>Expected Travelers</h3>
 	<div class="row">
@@ -73,6 +75,6 @@
 	</div>
 
 </div>
-<div ng-if="!beaconsCtrl.currentbeacon">
+<div ng-if="!beacons_ctrl.currentbeacon">
 	<h1>Please select a beacon on the left</h1>
 </div>

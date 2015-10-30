@@ -3,6 +3,7 @@ app.factory('BeaconFactory', function($http, $location) {
 		getBeacons: function(callback){
 			console.log("BeaconFactory getBeacons");
 			$http.get('/beacons').success(function(response) {
+				console.log(response);
 				callback(response);
 			})
 			// var response = [{first_name: 'Winners!'}];

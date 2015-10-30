@@ -2,24 +2,22 @@ var Beacon = mongoose.model('Beacon');
 
 module.exports = (function() {
 
-	// return{
-	// 	retrieve: function(request, response){
-	// 		console.log("S | beacons.js retrieve:", request.body.response.json);
-	// 		var query = "SELECT * FROM beacons";
-	// 		con.query(query, function (err, rows){
-	// 			if (err) {
-	// 				return response.json(err)
-	// 			}
-	// 			else {
-	// 				return resonse.json(rows)
-	// 			}
-	// 		})
-	// 	}
-	// },
-
-
-
 	return {
+		retrieve: function(request, response){
+			console.log("S | beacons.js retrieve:", request.body);
+			var query = "SELECT * FROM beacons";
+			con.query(query, function (err, rows){
+				console.log("ran retrieve query");
+				if (err) {
+					return response.json(err);
+				}
+				else {
+					console.log("rows", rows);
+					return response.json(rows);
+				}
+			});
+		},
+
 		index: function(request, response) {
 			console.log("Server / Ctrl / Beacons - Index");
 			Beacon.find({$query:{}}, function(err, beacons){
@@ -32,7 +30,7 @@ module.exports = (function() {
 					response.json(beacons);
 					console.log(beacons);
 				}
-			});
+			})
 
 		},
 
