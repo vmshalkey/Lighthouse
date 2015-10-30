@@ -12,7 +12,7 @@ module.exports = function(app) {
 	// Edit
 	.post('/users/:id/edit', function(request, response) { users.update(request, response) })
 	// Create
-	
+
 	//Destroy .delete('/users/:id')
 	.post('/users/:id/destroy', function(request, response) { users. destroy(request, response) })
 	// Update .put/patch('/users/:id')
@@ -27,4 +27,6 @@ module.exports = function(app) {
 	.post('/beacons', function(request, response){ beacons.create(request, response)})
 	// .get('/beacons/:name', function(request, response){ beacons.info(request, response)})
 	.delete('/beacons/:id', function(request, response) {beacons.destroy(request, response) })
+
+
 }

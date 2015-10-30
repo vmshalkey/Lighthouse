@@ -45,6 +45,13 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 		      // Error callback
 		    });
 	  	}
+
+	  	$scope.logout = function() {
+			auth.signout();
+			store.remove('profile');
+			store.remove('token');
+			alert("logged out");
+		}
 });
 
 app.animation('.slide-animation', function ($window) {

@@ -48,7 +48,6 @@
 	<script type="text/javascript" src="/js/controllers/lookouts_ctrl.js"></script>
 	<script type="text/javascript" src="/js/controllers/main_ctrl.js"></script>
 	<script type="text/javascript" src="/js/controllers/users_ctrl.js"></script>
-	<script type="text/javascript" src="/js/controllers/login_ctrl.js"></script>
 
 </html>
 <body ng-controller="MainController as main">
@@ -62,8 +61,9 @@
 			<div>
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="#/">Home</a></li>
+					<li><a href="#/dashboard">Dashboard</a></li>
 					<li><a ng-click="login()"><span class="glyphicon glyphicon-log-in"> Login / <span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+					<li><a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 				</ul>
 			</div>
 		</div>
