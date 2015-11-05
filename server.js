@@ -1,16 +1,14 @@
-// var http = require('http');
+//set up ================
 var express = require('express')
 var app = express()
 var jwt = require('express-jwt');
 
-var port = 8000;
-var server = app.listen(port, function () {
-	console.log('--------------------');
-	console.log('--------'+port+'--------');
-	console.log('--------------------');
-});
-
-var bodyParser = require('body-parser')
+// configuration =====================
+var bodyParser = require('body-parser');
+app.use(express.static(__dirname + '/client'));
+app.use(bodyParser.urlencoded({'extended': 'true'}));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
 // Configure express-jwt with Auth0 account
 var jwtCheck = jwt({
@@ -29,7 +27,6 @@ app.use(session({
 	saveUninitialized: true
 }))
 
-app.use(express.static(__dirname + '/client'))
 
 // Mongoose
 require('./server/config/mongoose.js');
@@ -61,4 +58,12 @@ con.connect(function(err){
 		return;
 	}
 	console.log('Connection to MySQL DB established');
+});
+
+//listen (start app with nodemon or node server.js)======================
+var port = 8000;
+var server = app.listen(port, function () {
+	console.log('--------------------');
+	console.log('--------'+port+'--------');
+	console.log('--------------------');
 });
