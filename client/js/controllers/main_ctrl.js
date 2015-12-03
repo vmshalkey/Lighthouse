@@ -7,10 +7,10 @@ app.controller('MainController', function (UserFactory, $scope, $timeout, QueueS
 	var INTERVAL = 10000,
 		slides = [
 			{id:"image00", src:"assets/img/teens-walking.jpg", title: 'Our teens', subtitle: 'are side tracked!'},
-			{id:"image01", src:"assets/img/teens-gang.jpg", title: 'Our teens', subtitle: 'choose wrong friends!'},
-			{id:"image02", src:"assets/img/teens-walking3.jpg", title: 'Our teens', subtitle: 'can do wrong things!'},
-			{id:"image03", src:"assets/img/teen-class.jpg", title: 'Our teens', subtitle: 'should be here!'},
-			{id:"image04", src:"assets/img/beacon3-horizontal.png", title: 'A Parents', subtitle: 'answer!'}
+			{id:"image01", src:"assets/img/carbroken.jpg", title: 'Our lives', subtitle: 'have unexpected circumstances!'},
+			{id:"image02", src:"assets/img/latemeeting.jpg", title: 'Our meetings', subtitle: 'can run late!'},
+			{id:"image03", src:"assets/img/sickchild.jpg", title: 'Our loved ones', subtitle: 'need us!'},
+			{id:"image04", src:"assets/img/beacon3-horizontal.png", title: 'Finally', subtitle: 'a solution!'}
 		];
 
 		function setCurrentSlideIndex(index) {
